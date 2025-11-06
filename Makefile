@@ -60,11 +60,8 @@ vet:
 	@go vet $(VETARGS) $(PACKAGES)
 
 lint:
-	@echo "--> Running golint"
-	@which golint 2>/dev/null ; if [ $$? -eq 1 ]; then \
-		go get -u golang.org/x/lint/golint; \
-	fi
-	@golint -set_exit_status .
+	@echo "--> Running go vet"
+	@go vet $(PACKAGES)
 
 gofmt:
 	@echo "--> Running gofmt check"
