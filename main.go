@@ -410,7 +410,7 @@ func run(c *cli.Context) error {
 	}
 	for _, r := range resources {
 		if c.Bool("debug-templates") {
-			logInfo.Printf("Template:\n" + string(r.Template[:]))
+			logInfo.Printf("Template:\n%s", string(r.Template[:]))
 		}
 		if err := yaml.Unmarshal(r.Template, &r); err != nil {
 			return err
@@ -645,7 +645,7 @@ func deploy(c *cli.Context, r *ObjectResource) error {
 	logInfo.Printf("%s %s/%s", action, strings.ToLower(r.Kind), r.Name)
 	if err = cmd.Run(); err != nil {
 		if errbuf.Len() > 0 {
-			return fmt.Errorf(errbuf.String())
+			return fmt.Errorf("%s", errbuf.String())
 		}
 		return err
 	}

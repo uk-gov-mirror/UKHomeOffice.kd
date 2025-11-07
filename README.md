@@ -457,11 +457,8 @@ docker run --rm -v $PWD:/go/src/github.com/UKHomeOffice/kd -w /go/src/github.com
 
 ## Release process
 
-Push / Merge to master will produce a docker
-[image](https://quay.io/repository/ukhomeofficedigital/kd?tab=tags) with a tag `latest`.
-
-To create a new release, just create a new tag off master.
-
+To create a new release, create a git tag with the Kubernetes version number (for example `v1.34.1`) and push it.
+This will trigger the CI/CD pipeline to build and publish a docker [image](https://quay.io/repository/ukhomeofficedigital/kd?tab=tags) with that version tag.
 
 ## Contributing
 
